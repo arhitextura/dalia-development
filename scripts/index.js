@@ -17,7 +17,7 @@ const end = document.querySelector("#despre");
 //Scroll Magic
 const controller = new ScrollMagic.Controller();
 const scene = new ScrollMagic.Scene({
-  duration: 16000,
+  duration: 1200,
   triggerElement: videoSection,
   triggerHook: 0,
 })
@@ -33,8 +33,11 @@ let delay = 0;
 
 scene.on("update", (e) => {
   SCROLLPOS = e.scrollPos / 1000;
+  // console.log(e.scrollPos);
 });
-
+scene.on("progress", (e)=>{
+  console.log(e.progress);
+})
 setInterval(() => {
   delay += (SCROLLPOS - delay ) * accelAmount;
   
