@@ -5,10 +5,7 @@
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   color: aliceblue;
-}
-
-section#main-page {
-  height: 100vh;
+  z-index: 1;
 }
 
 section#main-page video.video-to-scroll {
@@ -27,10 +24,6 @@ section#main-page video.video-to-scroll {
 }
 
 section {
-  position: fixed;
-}
-
-#app {
-  min-height: 2500px;
+  height: 100vw;
 }
 /*# sourceMappingURL=styles.css.map */
