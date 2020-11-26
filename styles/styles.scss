@@ -1,21 +1,23 @@
-@import './logo.scss';
-@import './video.scss';
+@import "./logo.scss";
+@import "./video.scss";
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
 }
 section {
-  height: 100vw;
+  height: 100vh;
+  &:nth-child(odd) {
+    background-color: bisque;
+  }
 }
 canvas {
   position: fixed;
   left: 50%;
   top: 50%;
-  max-height: 100vh;
-  max-width: 100vw;
   transform: translate(-50%, -50%);
+  max-width: 100vw;
+  max-height: 100vh;
 }
