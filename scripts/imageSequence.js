@@ -8,7 +8,7 @@ const imageArray = [];
 const imgCount = 113;
 const pathToImage = ''
 const currentFrame = index => {
-  return `/images/sequence/mobile320/Dalia-blooming/dalia_blooming_phone_414_812_${index.toString().padStart(5, '0')}.png`;
+  return `https://raw.githubusercontent.com/arhitextura/dalia-development/master/images/sequence/mobile320/Dalia-blooming/dalia_blooming_phone_414_812_${index.toString().padStart(5, '0')}.png`;
 }
 //init frame
 img.src = currentFrame(0);
