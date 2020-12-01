@@ -1,10 +1,4 @@
-// window.addEventListener(
-//   "scroll",
-//   () => {
-//     console.log(window.pageYOffset);
-//   },
-//   false
-// );
+
 
 const videoSection = document.querySelector("#main-page");
 const video = videoSection.querySelector("video");
