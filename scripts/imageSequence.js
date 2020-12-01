@@ -24,8 +24,7 @@ function handleLoad() {
   drawImageActualSize();
 }
 function handleResize() {
-  // canvas.width = window.innerWidth
-  // canvas.height = window.innerHeight
+  
   drawImageActualSize();
 }
 function drawImageActualSize () {
