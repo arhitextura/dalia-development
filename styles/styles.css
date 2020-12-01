@@ -23,14 +23,11 @@ video.video-to-scroll {
 
 section {
   height: 100vh;
-}
-
-section:nth-child(odd) {
-  background-color: bisque;
+  overflow-x: hidden;
 }
 
 canvas {
-  position: fixed;
+  position: absolute;
   opacity: 0;
   left: 50%;
   top: 50%;
