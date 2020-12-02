@@ -11,11 +11,18 @@ const imageArray = new Array();
 const imgCount = 113;
 currentImg.src = frameIndex(0);
 //Preload all images
+let loadProgress = 0;
+function increaseProgress(){
+  loadProgress++;
+  console.log(Math.ceil(loadProgress/imgCount*100), "%");
+}
 function preloadImages() {
   for (let i = 0; i < imgCount; i++) {
     try {
-      imageArray[i] = new Image();
-      imageArray[i].src = frameIndex(i);
+      let img = new Image();
+      img.src = frameIndex(i);
+      imageArray[i] = img;
+      img.onload = () => increaseProgress()
     } catch (error) {
       console.log("Error loading image: ", error);
     }
@@ -23,7 +30,8 @@ function preloadImages() {
 }
 preloadImages();
 
-window.onload = () => {
+currentImg.onload = () => {
+  console.log("First Image loaded");
   canvas.classList.add("loaded");
   drawImageActualSize();
 };
@@ -73,6 +81,11 @@ window.setInterval(() => {
   delay += (progress - delay) * accelAmount;
   currentImg = imageArray[Math.floor(delay)];
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  try {
+    
+  } catch (error) {
+    
+  }
   ctx.drawImage(
     imageArray[Math.floor(delay)],
     0,
