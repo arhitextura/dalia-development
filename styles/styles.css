@@ -26,6 +26,26 @@ section {
   overflow-x: hidden;
 }
 
+img.logo_svg_dalia {
+  position: absolute;
+  -webkit-transform: scale(0.8, 0.8);
+          transform: scale(0.8, 0.8);
+  opacity: 0;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: opacity 1.5s ease-in;
+  transition: opacity 1.5s ease-in;
+}
+
+img.logo_svg_dalia.finished_animation {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity 1.5s ease-in;
+  transition: opacity 1.5s ease-in;
+}
+
 canvas {
   position: absolute;
   opacity: 0;
@@ -40,6 +60,6 @@ canvas {
 }
 
 canvas.loaded {
-  opacity: 1.0;
+  opacity: 1;
 }
 /*# sourceMappingURL=styles.css.map */

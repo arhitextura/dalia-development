@@ -10,11 +10,27 @@
 section {
   height: 100vh;
   overflow-x: hidden;
-  
+
   //Debug
   // &:nth-child(odd) {
   //   background-color: bisque;
   // }
+}
+img.logo_svg_dalia {
+  position: absolute;
+  transform: scale(0.8, 0.8);
+  opacity: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 1.5s ease-in;
+  // transform-origin: left top;
+  &.finished_animation {
+    // transform: scale(1.1, 1.1);
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.5s ease-in;
+  }
 }
 canvas {
   position: absolute;
@@ -25,7 +41,7 @@ canvas {
   max-width: 100vw;
   max-height: 100vh;
   transition: opacity 2s ease-in;
-  &.loaded{
-    opacity: 1.0;
+  &.loaded {
+    opacity: 1;
   }
 }

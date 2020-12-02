@@ -4,7 +4,7 @@ import { frameIndex } from "./utils.js";
 const logoSection = document.querySelector(".logo-container");
 const canvas = document.querySelector("#image-sq-player");
 const ctx = canvas.getContext("2d");
-
+const svgLogo = document.querySelector(".logo_svg_dalia");
 //Initialize first image
 let currentImg = new Image();
 const imageArray = new Array();
@@ -70,7 +70,12 @@ let delay = 0;
 scene.on("progress", (e) => {
   progress = e.progress * 113;
 });
-scene.on("end", (e) => {
+scene.on("end", () => {
+  if(svgLogo.classList.contains("finished_animation")){
+    svgLogo.classList.remove("finished_animation")
+  } else {
+    svgLogo.classList.add("finished_animation")
+  }
   if (canvas.classList.contains("loaded")) {
     canvas.classList.remove("loaded");
   } else {
