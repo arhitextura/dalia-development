@@ -1,19 +1,16 @@
 "use strict";
-import { centerImageOffset } from "./utils.js";
+import { frameIndex } from "./utils.js";
+//Selecting HTML elements
 const logoSection = document.querySelector(".logo-container");
 const canvas = document.querySelector("#image-sq-player");
 const ctx = canvas.getContext("2d");
+
+//Initialize first image
 let currentImg = new Image();
-const imageArray = [];
+const imageArray = new Array();
 const imgCount = 113;
-const pathToImage = "";
-const frameIndex = (index) => {
-  return `../images/sequence/mobile320/Dalia-blooming/dalia_blooming_phone_414_812_${index
-    .toString()
-    .padStart(5, "0")}.png`;
-};
-//init frame
 currentImg.src = frameIndex(0);
+//Preload all images
 function preloadImages() {
   for (let i = 0; i < imgCount; i++) {
     try {
@@ -23,11 +20,12 @@ function preloadImages() {
       console.log("Error loading image: ", error);
     }
   }
-  console.log(imageArray);
 }
 preloadImages();
+
 window.onload = () => {
   canvas.classList.add("loaded");
+  drawImageActualSize();
 };
 
 function handleLoad() {
@@ -36,6 +34,8 @@ function handleLoad() {
 function handleResize() {
   drawImageActualSize();
 }
+
+//Draw the actual size of the image, the canvas is centered by the css
 function drawImageActualSize() {
   canvas.width = currentImg.naturalWidth;
   canvas.height = currentImg.naturalHeight;
