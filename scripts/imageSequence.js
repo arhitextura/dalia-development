@@ -5,6 +5,7 @@ const logoSection = document.querySelector(".logo-container");
 const canvas = document.querySelector("#image-sq-player");
 const ctx = canvas.getContext("2d");
 const svgLogo = document.querySelector(".logo_svg_dalia");
+const imagesLoadedEvent = new Event('imagesLoaded');
 //Initialize first image
 let currentImg = new Image();
 const imageArray = new Array();
@@ -14,7 +15,9 @@ currentImg.src = frameIndex(0);
 let loadProgress = 0;
 function increaseProgress(){
   loadProgress++;
-  console.log(Math.ceil(loadProgress/imgCount*100), "%");
+  if(Math.ceil(loadProgress/imgCount*100) > 99){
+    canvas.dispatchEvent(imagesLoadedEvent);
+  }
 }
 function preloadImages() {
   for (let i = 0; i < imgCount; i++) {
@@ -29,9 +32,8 @@ function preloadImages() {
   }
 }
 preloadImages();
-
+canvas.addEventListener('imagesLoaded', ()=> {console.log("All images loaded");})
 currentImg.onload = () => {
-  console.log("First Image loaded");
   canvas.classList.add("loaded");
   drawImageActualSize();
 };
@@ -57,9 +59,9 @@ window.addEventListener("resize", handleResize, false);
 const controller = new ScrollMagic.Controller();
 const scene = new ScrollMagic.Scene({
   duration: 2500,
-  triggerHook: 1,
+  triggerHook: 0,
 })
-  // .addIndicators()
+  .addIndicators()
   .setPin(logoSection)
   .addTo(controller);
 
@@ -86,11 +88,7 @@ window.setInterval(() => {
   delay += (progress - delay) * accelAmount;
   currentImg = imageArray[Math.floor(delay)];
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  try {
-    
-  } catch (error) {
-    
-  }
+
   ctx.drawImage(
     imageArray[Math.floor(delay)],
     0,
