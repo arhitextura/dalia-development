@@ -13,6 +13,63 @@ video.video-to-scroll {
   height: 100%;
 }
 
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #363636;
+  -webkit-animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+          animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  -webkit-animation-delay: -0.24s;
+          animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  -webkit-animation-delay: -0.12s;
+          animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+
+@-webkit-keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -26,6 +83,26 @@ section {
   overflow-x: hidden;
 }
 
+img.logo_svg_dalia {
+  position: absolute;
+  -webkit-transform: scale(0.8, 0.8);
+          transform: scale(0.8, 0.8);
+  opacity: 0;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: opacity 1.5s ease-in;
+  transition: opacity 1.5s ease-in;
+}
+
+img.logo_svg_dalia.finished_animation {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity 1.5s ease-in;
+  transition: opacity 1.5s ease-in;
+}
+
 canvas {
   position: absolute;
   opacity: 0;
@@ -35,11 +112,11 @@ canvas {
           transform: translate(-50%, -50%);
   max-width: 100vw;
   max-height: 100vh;
-  -webkit-transition: opacity 1s ease-in;
-  transition: opacity 1s ease-in;
+  -webkit-transition: opacity 2s ease-in;
+  transition: opacity 2s ease-in;
 }
 
 canvas.loaded {
-  opacity: 1.0;
+  opacity: 1;
 }
 /*# sourceMappingURL=styles.css.map */

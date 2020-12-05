@@ -1,48 +1,67 @@
-'use strict'
-import { centerImageOffset } from './utils.js'
-const logoSection = document.querySelector(".logo-container")
-const canvas = document.querySelector("#image-sq-player")
-const ctx = canvas.getContext("2d")
-const img = new Image();
-const imageArray = [];
+"use strict";
+import { frameIndex } from "./utils.js";
+//Selecting HTML elements
+const logoSection = document.querySelector(".logo-container");
+const canvas = document.querySelector("#image-sq-player");
+const ctx = canvas.getContext("2d");
+const svgLogo = document.querySelector(".logo_svg_dalia");
+const imagesLoadedEvent = new Event('imagesLoaded');
+//Initialize first image
+let currentImg = new Image();
+const imageArray = new Array();
 const imgCount = 113;
-const pathToImage = ''
-const currentFrame = index => {
-  return `https://raw.githubusercontent.com/arhitextura/dalia-development/master/images/sequence/mobile320/Dalia-blooming/dalia_blooming_phone_414_812_${index.toString().padStart(5, '0')}.png`;
+currentImg.src = frameIndex(0);
+//Preload all images
+let loadProgress = 0;
+function increaseProgress(){
+  loadProgress++;
+  if(Math.ceil(loadProgress/imgCount*100) > 99){
+    canvas.dispatchEvent(imagesLoadedEvent);
+  }
 }
-//init frame
-img.src = currentFrame(0);
-// canvas.onload = () => {
-//   canvas.width = window.innerWidth
-// }
-
-window.onload = () => {
-  canvas.classList.add('loaded')
+function preloadImages() {
+  for (let i = 0; i < imgCount; i++) {
+    try {
+      let img = new Image();
+      img.src = frameIndex(i);
+      imageArray[i] = img;
+      img.onload = () => increaseProgress()
+    } catch (error) {
+      console.log("Error loading image: ", error);
+    }
+  }
 }
+preloadImages();
+canvas.addEventListener('imagesLoaded', ()=> {console.log("All images loaded");})
+currentImg.onload = () => {
+  canvas.classList.add("loaded");
+  drawImageActualSize();
+};
 
 function handleLoad() {
   drawImageActualSize();
 }
 function handleResize() {
-  
   drawImageActualSize();
 }
-function drawImageActualSize () {
-  canvas.width = img.naturalWidth;
-  canvas.height = img.naturalHeight;
-  ctx.drawImage(img, 0,0, canvas.width, canvas.height)
+
+//Draw the actual size of the image, the canvas is centered by the css
+function drawImageActualSize() {
+  canvas.width = currentImg.naturalWidth;
+  canvas.height = currentImg.naturalHeight;
+  ctx.drawImage(currentImg, 0, 0, canvas.width, canvas.height);
 }
 
-img.addEventListener('load', handleLoad)
-window.addEventListener('resize', handleResize, false)
+currentImg.addEventListener("load", handleLoad);
+window.addEventListener("resize", handleResize, false);
 
 //Animation
 const controller = new ScrollMagic.Controller();
 const scene = new ScrollMagic.Scene({
   duration: 2500,
-  triggerHook: 1,
+  triggerHook: 0,
 })
-  // .addIndicators()
+  .addIndicators()
   .setPin(logoSection)
   .addTo(controller);
 
@@ -50,17 +69,31 @@ const accelAmount = 0.15;
 let progress = 0;
 let delay = 0;
 
-scene.on('progress', e => {
-  progress = e.progress * 113
-})
-scene.on("end", e => {
-  if(canvas.classList.contains('loaded')){
-    canvas.classList.remove('loaded')
+scene.on("progress", (e) => {
+  progress = e.progress * 113;
+});
+scene.on("end", () => {
+  if(svgLogo.classList.contains("finished_animation")){
+    svgLogo.classList.remove("finished_animation")
   } else {
-    canvas.classList.add('loaded')
+    svgLogo.classList.add("finished_animation")
   }
-})
+  if (canvas.classList.contains("loaded")) {
+    canvas.classList.remove("loaded");
+  } else {
+    canvas.classList.add("loaded");
+  }
+});
 window.setInterval(() => {
   delay += (progress - delay) * accelAmount;
-  img.src = currentFrame(Math.floor(delay))
-}, 1000 / 25)
+  currentImg = imageArray[Math.floor(delay)];
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  ctx.drawImage(
+    imageArray[Math.floor(delay)],
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+}, 1000 / 25);
