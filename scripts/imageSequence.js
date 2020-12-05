@@ -5,6 +5,7 @@ const logoSection = document.querySelector(".logo-container");
 const canvas = document.querySelector("#image-sq-player");
 const ctx = canvas.getContext("2d");
 const svgLogo = document.querySelector(".logo_svg_dalia");
+const loader = document.querySelector('.lds-facebook');
 const imagesLoadedEvent = new Event('imagesLoaded');
 //Initialize first image
 let currentImg = new Image();
@@ -13,9 +14,9 @@ const imgCount = 113;
 currentImg.src = frameIndex(0);
 //Preload all images
 let loadProgress = 0;
-function increaseProgress(){
+function increaseProgress() {
   loadProgress++;
-  if(Math.ceil(loadProgress/imgCount*100) > 99){
+  if (Math.ceil(loadProgress / imgCount * 100) > 99) {
     canvas.dispatchEvent(imagesLoadedEvent);
   }
 }
@@ -32,7 +33,7 @@ function preloadImages() {
   }
 }
 preloadImages();
-canvas.addEventListener('imagesLoaded', ()=> {console.log("All images loaded");})
+canvas.addEventListener('imagesLoaded', () => { loader.style.display = 'none' })
 currentImg.onload = () => {
   canvas.classList.add("loaded");
   drawImageActualSize();
@@ -61,7 +62,7 @@ const scene = new ScrollMagic.Scene({
   duration: 2500,
   triggerHook: 0,
 })
-  .addIndicators()
+  // .addIndicators()
   .setPin(logoSection)
   .addTo(controller);
 
@@ -73,7 +74,7 @@ scene.on("progress", (e) => {
   progress = e.progress * 113;
 });
 scene.on("end", () => {
-  if(svgLogo.classList.contains("finished_animation")){
+  if (svgLogo.classList.contains("finished_animation")) {
     svgLogo.classList.remove("finished_animation")
   } else {
     svgLogo.classList.add("finished_animation")
