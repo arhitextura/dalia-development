@@ -1,12 +1,13 @@
 "use strict";
-import { frameIndex } from "./utils.js";
+import { frameIndex, centerImageOffset } from "./utils.js";
 //Selecting HTML elements
 const logoSection = document.querySelector(".logo-container");
 const canvas = document.querySelector("#image-sq-player");
 const ctx = canvas.getContext("2d");
 const svgLogo = document.querySelector(".logo_svg_dalia");
-const loader = document.querySelector('.lds-facebook');
+const loader = document.querySelector('.sk-folding-cube');
 const imagesLoadedEvent = new Event('imagesLoaded');
+const logoText = document.querySelector(".logo-span");
 //Initialize first image
 let currentImg = new Image();
 const imageArray = new Array();
@@ -48,8 +49,11 @@ function handleResize() {
 
 //Draw the actual size of the image, the canvas is centered by the css
 function drawImageActualSize() {
+
   canvas.width = currentImg.naturalWidth;
   canvas.height = currentImg.naturalHeight;
+  const offset = centerImageOffset(canvas.width, canvas.height)
+  console.log(offset);
   ctx.drawImage(currentImg, 0, 0, canvas.width, canvas.height);
 }
 
@@ -73,6 +77,20 @@ let delay = 0;
 scene.on("progress", (e) => {
   progress = e.progress * 113;
 });
+
+window.setInterval(() => {
+  delay += (progress - delay) * accelAmount;
+  currentImg = imageArray[Math.floor(delay)];
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(
+    imageArray[Math.floor(delay)],
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+}, 1000 / 25);
+
 scene.on("end", () => {
   if (svgLogo.classList.contains("finished_animation")) {
     svgLogo.classList.remove("finished_animation")
@@ -84,17 +102,9 @@ scene.on("end", () => {
   } else {
     canvas.classList.add("loaded");
   }
+  if (logoText.classList.contains("loaded")) {
+    logoText.classList.remove("loaded");
+  } else {
+    logoText.classList.add("loaded");
+  }
 });
-window.setInterval(() => {
-  delay += (progress - delay) * accelAmount;
-  currentImg = imageArray[Math.floor(delay)];
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  ctx.drawImage(
-    imageArray[Math.floor(delay)],
-    0,
-    0,
-    canvas.width,
-    canvas.height
-  );
-}, 1000 / 25);
