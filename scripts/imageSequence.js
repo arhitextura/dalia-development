@@ -5,9 +5,10 @@ const logoSection = document.querySelector(".logo-container");
 const canvas = document.querySelector("#image-sq-player");
 const ctx = canvas.getContext("2d");
 const svgLogo = document.querySelector(".logo_svg_dalia");
-const loader = document.querySelector('.sk-folding-cube');
-const imagesLoadedEvent = new Event('imagesLoaded');
 const logoText = document.querySelector(".logo-span");
+const logoContainer = document.querySelector(".logo-content");
+const loader = document.querySelector(".sk-folding-cube");
+const imagesLoadedEvent = new Event("imagesLoaded");
 //Initialize first image
 let currentImg = new Image();
 const imageArray = new Array();
@@ -17,10 +18,11 @@ currentImg.src = frameIndex(0);
 let loadProgress = 0;
 function increaseProgress() {
   loadProgress++;
-  if (Math.ceil(loadProgress / imgCount * 100) > 99) {
+  if (Math.ceil((loadProgress / imgCount) * 100) > 99) {
     canvas.dispatchEvent(imagesLoadedEvent);
   }
 }
+
 function preloadImages() {
   for (let i = 0; i < imgCount; i++) {
     try {
@@ -34,7 +36,9 @@ function preloadImages() {
   }
 }
 preloadImages();
-canvas.addEventListener('imagesLoaded', () => { loader.style.display = 'none' })
+canvas.addEventListener("imagesLoaded", () => {
+  loader.style.display = "none";
+});
 currentImg.onload = () => {
   canvas.classList.add("loaded");
   drawImageActualSize();
@@ -49,10 +53,9 @@ function handleResize() {
 
 //Draw the actual size of the image, the canvas is centered by the css
 function drawImageActualSize() {
-
   canvas.width = currentImg.naturalWidth;
   canvas.height = currentImg.naturalHeight;
-  const offset = centerImageOffset(canvas.width, canvas.height)
+  const offset = centerImageOffset(canvas.width, canvas.height);
   console.log(offset);
   ctx.drawImage(currentImg, 0, 0, canvas.width, canvas.height);
 }
@@ -63,7 +66,7 @@ window.addEventListener("resize", handleResize, false);
 //Animation
 const controller = new ScrollMagic.Controller();
 const scene = new ScrollMagic.Scene({
-  duration: 2500,
+  duration: 2900,
   triggerHook: 0,
 })
   // .addIndicators()
@@ -93,9 +96,9 @@ window.setInterval(() => {
 
 scene.on("end", () => {
   if (svgLogo.classList.contains("finished_animation")) {
-    svgLogo.classList.remove("finished_animation")
+    svgLogo.classList.remove("finished_animation");
   } else {
-    svgLogo.classList.add("finished_animation")
+    svgLogo.classList.add("finished_animation");
   }
   if (canvas.classList.contains("loaded")) {
     canvas.classList.remove("loaded");

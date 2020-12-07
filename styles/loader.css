@@ -1,14 +1,11 @@
 .sk-folding-cube {
   width: 20px;
   height: 20px;
-  -webkit-transform: rotateZ(45deg);
-  transform: rotateZ(45deg);
-}
-
-.sk-folding-cube.absolute {
   position: fixed;
   top: 3%;
   left: 2%;
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
 }
 
 .sk-folding-cube .sk-cube {

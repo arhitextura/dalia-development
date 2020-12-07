@@ -11,8 +11,8 @@ export function centerImageOffset(imgWidth, imgHeight) {
  * @returns {String} `../images/sequence/mobile320/Dalia-blooming/dalia_blooming_phone_414_812_0000index`
  */
 export function frameIndex (index) {
-    return `../images/sequence/mobile320/Dalia-blooming/dalia_blooming_phone_414_812_${index
+    return `../images/sequence/mobile320/Dalia-blooming/Converted/dalia_blooming_phone_414_812_${index
       .toString()
-      .padStart(5, "0")}.${arguments[1]||'png'}`;
+      .padStart(5, "0")}.${arguments[1]||'jpg'}`;
 
   };
