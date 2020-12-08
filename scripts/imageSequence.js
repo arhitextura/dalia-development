@@ -11,8 +11,9 @@ const loader = document.querySelector(".sk-folding-cube");
 const imagesLoadedEvent = new Event("imagesLoaded");
 //Initialize first image
 let currentImg = new Image();
-const imageArray = new Array();
 const imgCount = 113;
+const imageArray = new Array(imgCount).fill(new Image());
+console.log("ImageArray", imageArray);
 currentImg.src = frameIndex(0);
 //Preload all images
 let loadProgress = 0;
@@ -24,9 +25,12 @@ function increaseProgress() {
 }
 
 function preloadImages() {
+  
+
   for (let i = 0; i < imgCount; i++) {
     try {
       let img = new Image();
+      img.rel = "preload";
       img.src = frameIndex(i);
       imageArray[i] = img;
       img.onload = () => increaseProgress()
@@ -56,7 +60,6 @@ function drawImageActualSize() {
   canvas.width = currentImg.naturalWidth;
   canvas.height = currentImg.naturalHeight;
   const offset = centerImageOffset(canvas.width, canvas.height);
-  console.log(offset);
   ctx.drawImage(currentImg, 0, 0, canvas.width, canvas.height);
 }
 
