@@ -37,20 +37,25 @@ function render() {
   controls.update();
 }
 
-//Clip plane
-const clipPlanes = [
-  new THREE.Plane(new THREE.Vector3(1, 0, 0), 100),
-  new THREE.Plane(new THREE.Vector3(0, -1, 0), 25),
-  new THREE.Plane(new THREE.Vector3(0, 0, -1), 100),
+
+
+
+//Clipping
+let planes, planeObjects, planeHelpers, object;
+planes = [
+  new THREE.Plane(new THREE.Vector3(-1, 0, 0), 0),
+  new THREE.Plane(new THREE.Vector3(0, -1, 0), 0),
+  new THREE.Plane(new THREE.Vector3(0, 0, -1), 0),
 ];
-renderer.clippingPlanes = clipPlanes;
-//Clipplane helpers
-const helpers = new THREE.Group();
-helpers.add(new THREE.PlaneHelper(clipPlanes[0], 2, 0xff0000));
-helpers.add(new THREE.PlaneHelper(clipPlanes[1], 2, 0x00ff00));
-helpers.add(new THREE.PlaneHelper(clipPlanes[2], 2, 0x0000ff));
-helpers.visible = true;
-scene.add(helpers);
+planeHelpers = planes.map((p) => new THREE.PlaneHelper(p, 200, 0xffffff));
+planeHelpers.forEach((ph) => {
+  ph.visible = true;
+  scene.add(ph);
+});
+// Set up clip plane rendering
+planeObjects = [];
+const planeGeom = new THREE.PlaneBufferGeometry(200, 200);
+
 
 //Load fbx
 const loader = new FBXLoader();
@@ -58,9 +63,20 @@ const loader = new FBXLoader();
 loader.load("../3dmodels/maia/maia.fbx", (model) => {
   model.scale.multiplyScalar(0.1);
   // model.rotateOnAxis(new THREE.Vector3(1,0,0), -90);
+  console.log("model", model);
   scene.add(model);
-  
 });
+
+object = new THREE.Group();
+scene.add(object);
+for ( let i = 0; i < 3; i ++ ) {
+  
+}
+
+
+
+
+
 // draw some geometries
 var geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 var material = new THREE.MeshNormalMaterial({ color: 0xffff00 });
