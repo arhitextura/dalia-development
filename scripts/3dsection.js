@@ -59,18 +59,72 @@ const planeGeom = new THREE.PlaneBufferGeometry(200, 200);
 
 //Load fbx
 const loader = new FBXLoader();
-
 loader.load("../3dmodels/maia/maia.fbx", (model) => {
   model.scale.multiplyScalar(0.1);
-  // model.rotateOnAxis(new THREE.Vector3(1,0,0), -90);
   console.log("model", model);
+
+  model.traverse(mesh => {
+    const geometry = mesh.geometry;
+    for (let i = 0; i < 3; i++) {
+      let plane = planes[i];
+      let stencilGroup = createPlaneStencilGroup(geometry, plane, i + 1);
+      let poGroup = new THREE.Group();
+
+      // plane is clipped by the other clipping planes
+      const planeMat =
+        new THREE.MeshStandardMaterial({
+
+          color: 0xE91E63,
+          metalness: 0.1,
+          roughness: 0.75,
+          clippingPlanes: planes.filter(p => p !== plane),
+
+          stencilWrite: true,
+          stencilRef: 0,
+          stencilFunc: THREE.NotEqualStencilFunc,
+          stencilFail: THREE.ReplaceStencilOp,
+          stencilZFail: THREE.ReplaceStencilOp,
+          stencilZPass: THREE.ReplaceStencilOp,
+
+        });
+      const po = new THREE.Mesh(planeGeom, planeMat);
+      po.onAfterRender = function (renderer) {
+
+        renderer.clearStencil();
+
+      };
+
+      po.renderOrder = i + 1.1;
+
+      object.add(stencilGroup);
+      poGroup.add(po);
+      planeObjects.push(po);
+      scene.add(poGroup);
+    }
+    const material = new THREE.MeshStandardMaterial({
+
+      color: 0xFFC107,
+      metalness: 0.1,
+      roughness: 0.75,
+      clippingPlanes: planes,
+      clipShadows: true,
+      shadowSide: THREE.DoubleSide,
+    });
+    const clippedColorFront = new THREE.Mesh( geometry, material );
+            clippedColorFront.castShadow = true;
+            clippedColorFront.renderOrder = 6;
+            object.add( clippedColorFront );
+  });
+ 
   scene.add(model);
+
 });
+
 
 object = new THREE.Group();
 scene.add(object);
-for ( let i = 0; i < 3; i ++ ) {
-  
+for (let i = 0; i < 3; i++) {
+
 }
 
 
@@ -78,10 +132,10 @@ for ( let i = 0; i < 3; i ++ ) {
 
 
 // draw some geometries
-var geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-var material = new THREE.MeshNormalMaterial({ color: 0xffff00 });
-var torus = new THREE.Mesh(geometry, material);
-scene.add(torus);
+// var geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+// var material = new THREE.MeshNormalMaterial({ color: 0xffff00 });
+// var torus = new THREE.Mesh(geometry, material);
+// scene.add(torus);
 const helper = new THREE.AxesHelper(5);
 scene.add(helper);
 render();
