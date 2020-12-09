@@ -16,3 +16,4 @@ export function frameIndex (index) {
       .padStart(5, "0")}.${arguments[1]||'jpg'}`;
 
   };
+

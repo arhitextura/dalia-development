@@ -5,3 +5,5 @@
 *.rar
 *css.map
 
+/modules
+/archicad

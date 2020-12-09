@@ -70,7 +70,7 @@ span.logo-span.loaded {
   opacity: 1.0;
 }
 
-canvas {
+canvas#image-sq-player {
   position: absolute;
   opacity: 0;
   left: 50%;
@@ -83,7 +83,7 @@ canvas {
   transition: opacity 0.5s ease-in;
 }
 
-canvas.loaded {
+canvas#image-sq-player.loaded {
   opacity: 1;
 }
 

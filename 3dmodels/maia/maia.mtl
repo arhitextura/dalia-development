@@ -1,0 +1,316 @@
+# FILE:maia.obj
+newmtl GDLM1_SHADOW_MATERIAL
+Ka 0.228885 0.228885 0.228885
+Kd 0.228885 0.228885 0.228885
+Ks 0 0 0
+illum 2
+Ns 0
+newmtl Vopsea_-_alb_titaniu
+Ka 0.93 0.93 0.93
+Kd 0.41 0.41 0.41
+Ks 0.0990005 0.0990005 0.1
+illum 2
+Ns 0.72
+newmtl Beton_-_usor
+Ka 0.335529 0.335529 0.335529
+Kd 0.541176 0.541176 0.541176
+Ks 0.184471 0.193255 0.217412
+illum 2
+Ns 0.84
+map_Ka maia_Textures\Concrete - 28 cb -opt.jpg
+map_Kd maia_Textures\Concrete - 28 cb -opt.jpg
+map_Ks maia_Textures\Concrete - 28 cb -opt.jpg
+newmtl Caramida_-_tesere_obisnuita
+Ka 0.494118 0.370588 0.329412
+Kd 0.494118 0.370588 0.329412
+Ks 0 0 0
+illum 2
+Ns 0
+map_Ka maia_Textures\Brick - Running Bond -opt.jpg
+map_Kd maia_Textures\Brick - Running Bond -opt.jpg
+map_Ks maia_Textures\Brick - Running Bond -opt.jpg
+newmtl Beton_-_caroiaj_100x100
+Ka 0.408392 0.408392 0.408392
+Kd 0.498039 0.498039 0.498039
+Ks 0.171294 0.179451 0.201882
+illum 2
+Ns 11
+map_Ka maia_Textures\Concrete - 02 -opt.jpg
+map_Kd maia_Textures\Concrete - 02 -opt.jpg
+map_Ks maia_Textures\Concrete - 02 -opt.jpg
+newmtl Vopsea_-_gri_deschis
+Ka 0.612706 0.612706 0.612706
+Kd 0.270118 0.270118 0.270118
+Ks 0.0990005 0.0990005 0.1
+illum 2
+Ns 0.72
+newmtl Lemn_-_pin_orizontal
+Ka 0.572784 0.530745 0.454549
+Kd 0.530039 0.491137 0.420627
+Ks 0.152 0.152 0.152
+illum 2
+Ns 0
+map_Ka maia_Textures\Wood - Pine Grained Horizontal -opt.jpg
+map_Kd maia_Textures\Wood - Pine Grained Horizontal -opt.jpg
+map_Ks maia_Textures\Wood - Pine Grained Horizontal -opt.jpg
+newmtl Lambriu_deschis
+Ka 0.702941 0.702941 0.702941
+Kd 0.656078 0.656078 0.656078
+Ks 0.152 0.152 0.152
+illum 2
+Ns 0
+map_Ka maia_Textures\Siding - Light -opt.jpg
+map_Kd maia_Textures\Siding - Light -opt.jpg
+map_Ks maia_Textures\Siding - Light -opt.jpg
+newmtl Izolatie_-_fibra_de_sticla
+Ka 0.823333 0.753333 0.516667
+Kd 0.397137 0.363373 0.249216
+Ks 0.155608 0.152471 0.131137
+illum 2
+Ns 0.6
+map_Ka maia_Textures\Insulation - Fiberglass -opt.jpg
+map_Kd maia_Textures\Insulation - Fiberglass -opt.jpg
+map_Ks maia_Textures\Insulation - Fiberglass -opt.jpg
+newmtl Parchet_lamelar_03
+Ka 0.578039 0.538627 0.483451
+Kd 0.534902 0.498431 0.447373
+Ks 0.152 0.152 0.152
+illum 2
+Ns 0
+map_Ka maia_Textures\Parquet - 08 c.jpg
+map_Kd maia_Textures\Parquet - 08 c.jpg
+map_Ks maia_Textures\Parquet - 08 c.jpg
+newmtl Placi_ceramice_-_gri_60x120
+Ka 0.395294 0.395294 0.395294
+Kd 0.395294 0.395294 0.395294
+Ks 0 0 0
+illum 2
+Ns 0
+map_Ka maia_Textures\Tiles - Gray 60x120 -opt.jpg
+map_Kd maia_Textures\Tiles - Gray 60x120 -opt.jpg
+map_Ks maia_Textures\Tiles - Gray 60x120 -opt.jpg
+newmtl Vopsea_-_negru_ivory
+Ka 0 0 0
+Kd 0 0 0
+Ks 0.356402 0.356402 0.36
+illum 2
+Ns 0.72
+newmtl Piatra_-_calcar
+Ka 0.655882 0.626471 0.555882
+Kd 0.655882 0.626471 0.555882
+Ks 0 0 0
+illum 2
+Ns 0
+map_Ka maia_Textures\Stone - Limestone Fine -opt.jpg
+map_Kd maia_Textures\Stone - Limestone Fine -opt.jpg
+map_Ks maia_Textures\Stone - Limestone Fine -opt.jpg
+newmtl Metal_-_otel_inoxidabil
+Ka 0.532353 0.535294 0.567647
+Kd 0.390392 0.392549 0.416275
+Ks 0.82349 0.803961 0.787686
+illum 2
+Ns 13
+map_Ka maia_Textures\Metal - Stainless Steel -opt.jpg
+map_Kd maia_Textures\Metal - Stainless Steel -opt.jpg
+map_Ks maia_Textures\Metal - Stainless Steel -opt.jpg
+newmtl Sticla_-_albastra
+Ka 0.150118 0.196745 0.283176
+Kd 0.517647 0.678431 0.976471
+Ks 1 1 1
+illum 2
+d 0.78
+Ns 34
+newmtl Caramida_-_rosie
+Ka 0.513333 0.329412 0.304706
+Kd 0.513333 0.329412 0.304706
+Ks 0 0 0
+illum 2
+Ns 0
+map_Ka maia_Textures\Brick - Red -opt.jpg
+map_Kd maia_Textures\Brick - Red -opt.jpg
+map_Ks maia_Textures\Brick - Red -opt.jpg
+newmtl Metal_-_fier
+Ka 0.243016 0.252075 0.271919
+Kd 0.198562 0.205964 0.222178
+Ks 0.24902 0.24902 0.24902
+illum 2
+Ns 0
+map_Ka maia_Textures\Metal - Iron -opt.jpg
+map_Kd maia_Textures\Metal - Iron -opt.jpg
+map_Ks maia_Textures\Metal - Iron -opt.jpg
+newmtl Metal_-_aluminiu
+Ka 0.71586 0.687236 0.687236
+Kd 0.128488 0.12335 0.12335
+Ks 0.544738 0.544738 0.544738
+illum 2
+Ns 10.2
+newmtl Vopsea_-_gri_inchis
+Ka 0.331882 0.331882 0.331882
+Kd 0.146314 0.146314 0.146314
+Ks 0.0990005 0.0990005 0.1
+illum 2
+Ns 0.72
+newmtl Sticla_-_clara__
+Ka 0.137255 0.137255 0.14
+Kd 0.980392 0.980392 1
+Ks 1 1 1
+illum 2
+d 0.17
+Ns 38.56
+newmtl Vopsea_-_antracit
+Ka 0.167765 0.167765 0.167765
+Kd 0.0739608 0.0739608 0.0739608
+Ks 0.0990005 0.0990005 0.1
+illum 2
+Ns 0.72
+newmtl Metal_-_zinc
+Ka 0.365257 0.369906 0.373607
+Kd 0.418385 0.423711 0.42795
+Ks 0.418353 0.418353 0.418353
+illum 2
+Ns 11
+map_Ka maia_Textures\Metal - Zinc -opt.jpg
+map_Kd maia_Textures\Metal - Zinc -opt.jpg
+map_Ks maia_Textures\Metal - Zinc -opt.jpg
+newmtl Lemn_-_pin_vertical
+Ka 0.572784 0.530745 0.454549
+Kd 0.530039 0.491137 0.420627
+Ks 0.152 0.152 0.152
+illum 2
+Ns 0
+map_Ka maia_Textures\Wood - Pine Grained Vertical -opt.jpg
+map_Kd maia_Textures\Wood - Pine Grained Vertical -opt.jpg
+map_Ks maia_Textures\Wood - Pine Grained Vertical -opt.jpg
+newmtl Metal_-_cromat
+Ka 0.486863 0.486863 0.486863
+Kd 0.224706 0.224706 0.224706
+Ks 0.96 0.96 0.96
+illum 2
+Ns 53.92
+newmtl Tencuiala_decorativa_-_galbena_rugoasa
+Ka 0.75 0.614706 0.367647
+Kd 0.95 0.778627 0.465686
+Ks 0.0793725 0.0774902 0.0759216
+illum 2
+Ns 0
+map_Ka maia_Textures\Stucco - Yellow Rough cb -opt.jpg
+map_Kd maia_Textures\Stucco - Yellow Rough cb -opt.jpg
+map_Ks maia_Textures\Stucco - Yellow Rough cb -opt.jpg
+newmtl Placi_ceramice_-_bej_30x30
+Ka 0.527059 0.494118 0.463529
+Kd 0.527059 0.494118 0.463529
+Ks 0 0 0
+illum 2
+Ns 0
+map_Ka maia_Textures\Tiles - Tan 30x30 -opt.jpg
+map_Kd maia_Textures\Tiles - Tan 30x30 -opt.jpg
+map_Ks maia_Textures\Tiles - Tan 30x30 -opt.jpg
+newmtl Tabla_click
+Ka 0.431667 0.437162 0.441536
+Kd 0.471513 0.477515 0.482293
+Ks 0.418353 0.418353 0.418353
+illum 2
+Ns 53.92
+map_Ka maia_Textures\Acoperis Tabla Cutata 4.jpg
+map_Kd maia_Textures\Acoperis Tabla Cutata 4.jpg
+map_Ks maia_Textures\Acoperis Tabla Cutata 4.jpg
+newmtl Aer
+Ka 0 0 0
+Kd 0 0 0
+Ks 0 0 0
+illum 2
+d 0
+Ns 0
+newmtl Placaj_-_OSB
+Ka 0.504471 0.420392 0.299529
+Kd 0.466824 0.38902 0.277176
+Ks 0.152 0.152 0.152
+illum 2
+Ns 0
+map_Ka maia_Textures\Wood - Chipboard 01 -opt.jpg
+map_Kd maia_Textures\Wood - Chipboard 01 -opt.jpg
+map_Ks maia_Textures\Wood - Chipboard 01 -opt.jpg
+newmtl PEN_MATERIAL161
+Ka 0.44036 0.44036 0.44036
+Kd 0.44036 0.44036 0.44036
+Ks 0 0 0
+illum 2
+Ns 0
+newmtl PEN_MATERIAL87
+Ka 0.44036 0.44036 0.44036
+Kd 0.44036 0.44036 0.44036
+Ks 0 0 0
+illum 2
+Ns 0
+newmtl Parchet_01
+Ka 0.307412 0.252235 0.202314
+Kd 0.284471 0.233412 0.187216
+Ks 0.152 0.152 0.152
+illum 2
+Ns 0
+map_Ka maia_Textures\Parquet - 01 -opt.jpg
+map_Kd maia_Textures\Parquet - 01 -opt.jpg
+map_Ks maia_Textures\Parquet - 01 -opt.jpg
+newmtl GDLM33_Opaque
+Ka 0 0 0
+Kd 0 0 0
+Ks 0 0 0
+illum 2
+Ns 0
+newmtl Vopsea_-_alb_lucios
+Ka 0.88 0.88 0.88
+Kd 0.3 0.3 0.3
+Ks 0.683104 0.683104 0.69
+illum 2
+Ns 38.56
+newmtl Plastic_-_laminat
+Ka 0.78 0.78 0.78
+Kd 0.62 0.62 0.62
+Ks 0.241176 0.241176 0.241176
+illum 2
+Ns 4.2
+newmtl Pamant
+Ka 0.371451 0.26102 0.188235
+Kd 0.580392 0.407843 0.294118
+Ks 0 0 0
+illum 2
+Ns 0
+map_Ka maia_Textures\Earth - Brown -opt.jpg
+map_Kd maia_Textures\Earth - Brown -opt.jpg
+map_Ks maia_Textures\Earth - Brown -opt.jpg
+newmtl GDLM37_leafs1
+Ka 0.0316777 0.20932 0.0732616
+Kd 0.0501564 0.331424 0.115998
+Ks 0 0 0
+illum 2
+Ns 0
+map_Ka maia_Textures\leaf1(13).jpg
+map_Kd maia_Textures\leaf1(13).jpg
+map_Ks maia_Textures\leaf1(13).jpg
+newmtl PEN_MATERIAL1
+Ka 0.15259 0.15259 0.15259
+Kd 0.15259 0.15259 0.15259
+Ks 0 0 0
+illum 2
+Ns 0
+newmtl Vopsea_-_albastru_cobalt
+Ka 0.0255294 0.350118 0.671059
+Kd 0.0112549 0.154353 0.295843
+Ks 0.0990005 0.0990005 0.1
+illum 2
+Ns 0.72
+newmtl Textil_01
+Ka 0.660706 0.633176 0.608706
+Kd 0.762353 0.730588 0.702353
+Ks 0 0 0
+illum 2
+Ns 0
+map_Ka maia_Textures\Textile - 01 cb -opt.jpg
+map_Kd maia_Textures\Textile - 01 cb -opt.jpg
+map_Ks maia_Textures\Textile - 01 cb -opt.jpg
+newmtl Sticla_-_oglinda
+Ka 0.745098 0.786078 0.793529
+Kd 0.196078 0.206863 0.208824
+Ks 1 1 1
+illum 2
+Ns 46.24
